@@ -104,7 +104,6 @@ int     numberOfPopulationSet     = 55;
 City[]                cityList;
 List<Float>           altitudeList;
 List<Integer>         populationList;
-List<Integer>         populationCounterList;
 Map<Integer, Integer> populationCount;
 
 // Widgets

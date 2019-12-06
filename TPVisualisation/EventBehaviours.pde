@@ -203,6 +203,7 @@ void mousePressed(MouseEvent evt)
     }
     else if (rightPanel.populationSelection.isCursorInside())
     {
+      rightPanel.populationSelection.isDragging = true;
       rightPanel.populationSelection.choosenPopulationStep = numberOfPopulationSet * (mouseX - rightPanel.populationSelection.x0) / rightPanel.populationSelection.widgetWidth;
       rightPanel.populationSelection.updateWidget();
       if (REDRAW_ON_EACH_INTERACTION)
@@ -257,7 +258,7 @@ void mouseDragged()
     if (REDRAW_ON_EACH_INTERACTION)
       redraw();
   }
-  else if (rightPanel.populationSelection.isCursorInside())
+  else if (rightPanel.populationSelection.isDragging)
   {
     rightPanel.populationSelection.choosenPopulationStep = numberOfPopulationSet * (mouseX - rightPanel.populationSelection.x0) / rightPanel.populationSelection.widgetWidth;
     rightPanel.populationSelection.updateWidget();
@@ -268,11 +269,12 @@ void mouseDragged()
 
 void mouseReleased()
 {
-  isDraggingInLoclalMap = false;
-  isDraggingInGlobalMap = false;
-  rightPanel.altitudeLegend.button1.isPressed = false;
-  rightPanel.altitudeLegend.button2.isPressed = false;
-  rightPanel.densitySlider.sliderButton.isPressed = false;
+  isDraggingInLoclalMap                            = false;
+  isDraggingInGlobalMap                            = false;
+  rightPanel.altitudeLegend.button1.isPressed      = false;
+  rightPanel.altitudeLegend.button2.isPressed      = false;
+  rightPanel.densitySlider.sliderButton.isPressed  = false;
+  rightPanel.populationSelection.isDragging        = false;
   if (localView.isCursorInside())
   {
     if (lastMouseX != mouseX || lastMouseY != mouseY || !DRAW_ONLY_LOCAL_MAP && DRAW_GLOBAL_MAP && globalView.isCursorInside())

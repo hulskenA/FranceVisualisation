@@ -1,3 +1,5 @@
+import java.lang.Math;
+
 public class PopulationSelection extends Widget
 {
   
@@ -7,6 +9,7 @@ public class PopulationSelection extends Widget
   public int        choosenPopulationColor   = color(0, 153, 0, 200);
   public int        choosenPopulationColor2  = color(153, 0, 0, 200);
   public int        choosenPopulationStep    = numberOfPopulationSet;
+  public boolean    isDragging               = false;
   
   private float     fontSize                 = .65f * FONT_SIZE;
   
@@ -49,7 +52,7 @@ public class PopulationSelection extends Widget
         fill(choosenPopulationColor2);
       else
         fill(color(DARK_THEME ? BRIGHT_COLOR : DARK_COLOR));
-      heighStep = map(populationCount.get(i), 0, maxPopulationCityCounter, this.widgetHeigh / 10f, this.widgetHeigh);
+      heighStep = map(populationCount.get(i), 0, maxPopulationCityCounter, this.widgetHeigh/20f, this.widgetHeigh);
       rect(this.x0 + i * widthStep, this.y0 + (this.widgetHeigh - heighStep) / 2f, widthStep, heighStep);
     }
     minPopulationText.fontColor = fontColor;

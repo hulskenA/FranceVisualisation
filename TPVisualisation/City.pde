@@ -1,4 +1,4 @@
-class City //<>// //<>// //<>//
+class City //<>//
 {
 
   // Data
